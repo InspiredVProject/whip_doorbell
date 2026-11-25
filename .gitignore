@@ -1,0 +1,16 @@
+# Runtime state: never commit actual device records or snapshots.
+/data/*
+!/data/.gitkeep
+*.log
+*.bak
+*.tmp
+*.zip
+*.rar
+.env
+.env.*
+!.env.example
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+node_modules/

@@ -1,0 +1,12 @@
+* text=auto
+*.lua text eol=lf
+*.js text eol=lf
+*.html text eol=lf
+*.css text eol=lf
+*.md text eol=lf
+*.yml text eol=lf
+*.ydr binary
+*.ytd binary
+*.ytyp binary
+*.webp binary
+*.png binary

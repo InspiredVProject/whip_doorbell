@@ -1,0 +1,22 @@
+name: Static validation
+on:
+  push:
+  pull_request:
+permissions:
+  contents: read
+jobs:
+  syntax:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install Lua 5.4
+        run: sudo apt-get update && sudo apt-get install -y lua5.4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Check Lua syntax
+        run: find . -type f -name '*.lua' -print0 | xargs -0 -n 1 luac5.4 -p
+      - name: Check JavaScript syntax
+        run: find html -type f -name '*.js' -print0 | xargs -0 -n 1 node --check
+      - name: Check runtime data is not tracked
+        run: test -z "$(git ls-files data/doorbells.json)"
